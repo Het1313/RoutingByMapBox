@@ -1,118 +1,192 @@
-App.css
-
+/* Default Dark Mode Styles */
 body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+  background-color: #000000;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Light Mode */
+body.light-mode {
   background-color: #f7f7f7;
+  color: #333333;
 }
 
+/* Map Page */
 .map-page {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 20px;
-  background-color: #ffffff;
-}
-
-h1 {
-  font-size: 2rem;
-  margin-bottom: 20px;
   text-align: center;
-  color: #333;
+  padding: 20px;
+  animation: fadeIn 1s ease-in-out;
 }
 
+/* Heading */
+h1 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+  text-shadow: 2px 2px 15px rgba(255, 255, 255, 0.6);
+  animation: slideInFromTop 1s ease-in-out;
+}
+
+/* Light Mode Heading */
+body.light-mode h1 {
+  color: #333333;
+  text-shadow: none;
+}
+
+/* Map Controls */
 .map-controls {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
   margin-bottom: 20px;
+  animation: fadeIn 1.5s ease-in-out;
 }
 
+/* Input Fields */
 input {
-  padding: 10px;
-  font-size: 1rem;
-  width: 100%;
-  max-width: 400px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
+  width: 300px;
+  padding: 12px;
+  border: 2px solid #ffffff;
+  border-radius: 8px;
+  font-size: 16px;
+  background-color: #000000;
+  color: white;
   margin-bottom: 10px;
+  transition: all 0.3s ease-in-out;
 }
 
+/* Light Mode Input Fields */
+body.light-mode input {
+  background-color: #ffffff;
+  color: #333333;
+  border-color: #333333;
+}
+
+input::placeholder {
+  color: #bbb;
+}
+
+/* Focused Input */
+input:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Light Mode Focused Input */
+body.light-mode input:focus {
+  border-color: #333333;
+  box-shadow: 0 0 10px rgba(51, 51, 51, 0.8);
+}
+
+/* Suggestions Box */
 .suggestions {
-  width: 100%;
-  max-width: 400px;
-  margin-bottom: 10px;
-  background-color: white;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  max-height: 200px;
+  overflow-y: auto;
+  background-color: #1a1a1a;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(255, 255, 255, 0.2);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Light Mode Suggestions Box */
+body.light-mode .suggestions {
+  background-color: #f7f7f7;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .suggestion-item {
   padding: 10px;
   cursor: pointer;
-  border-bottom: 1px solid #f1f1f1;
+  transition: background-color 0.3s ease;
 }
 
+/* Suggestion Hover */
 .suggestion-item:hover {
-  background-color: #f1f1f1;
+  background-color: #ffffff;
+  color: black;
 }
 
-button {
-  padding: 10px 20px;
-  background-color: #ff6347;
+/* Light Mode Suggestion Hover */
+body.light-mode .suggestion-item:hover {
+  background-color: #333333;
   color: white;
-  font-size: 1rem;
+}
+
+/* Button */
+button {
+  background: linear-gradient(90deg, #ffffff, #cccccc);
   border: none;
-  border-radius: 5px;
+  padding: 12px 24px;
+  font-size: 18px;
+  font-weight: bold;
+  color: black;
+  border-radius: 8px;
   cursor: pointer;
-  width: 100%;
-  max-width: 400px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  animation: pulse 2s infinite;
+}
+
+/* Light Mode Button */
+body.light-mode button {
+  background: linear-gradient(90deg, #333333, #555555);
+  color: white;
 }
 
 button:hover {
-  background-color: #e5533d;
+  transform: scale(1.1);
+  box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.6);
 }
 
-.react-map-gl {
-  width: 100%;
-  height: 500px;
-  border-radius: 8px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-  margin-top: 20px;
-  max-width: 100%;
-  max-height: 500px;
+/* Light Mode Button Hover */
+body.light-mode button:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.6);
 }
 
-@media (max-width: 768px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  .map-controls {
-    margin-bottom: 15px;
-  }
-
-  input, button {
-    max-width: 100%;
-  }
+/* User and Destination Marker */
+.user-marker,
+.destination-marker {
+  font-size: 24px;
+  filter: drop-shadow(0px 0px 8px rgba(255, 255, 255, 0.8));
 }
 
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.2rem;
-  }
+/* Light Mode Marker */
+body.light-mode .user-marker,
+body.light-mode .destination-marker {
+  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.8));
+}
 
-  .map-controls {
-    padding: 10px;
-  }
+/* Keyframe Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-  input, button {
-    font-size: 0.9rem;
-  }
+@keyframes slideInFromTop {
+  from { transform: translateY(-50px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
 
-  .suggestions {
-    max-width: 100%;
-  }
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Toggle Switch */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.theme-toggle:hover {
+  background-color: #444;
 }
